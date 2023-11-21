@@ -7,7 +7,20 @@
     tools:context=".MainActivity"
     android:background="@drawable/imagen1">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_usuario"
+
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -42,27 +55,21 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btn_IrRegistro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Registro" />
+                android:text="Registrarse" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn_IrInicioSesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Acceder" />
+                android:text="Iniciar Sesión" />
         </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="133dp"
-        android:layout_height="139dp"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="87dp"
-        tools:srcCompat="@drawable/user" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

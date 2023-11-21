@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PremiumActivity"
+    android:background="@drawable/fondo_degrade">
+
+
+    <!-- Barra dE MENU-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/barra_premium"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_PVolver"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+
+            android:background="?android:attr/selectableItemBackground"
+
+            android:gravity="center"
+
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageView
+            android:id="@+id/img_Volver"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="35dp"
+            android:gravity="center"
+
+            android:src="@drawable/ic_volver"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_PVolver"
+            app:layout_constraintEnd_toEndOf="@+id/btn_PVolver"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Volver"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.071"
+            app:layout_constraintStart_toEndOf="@+id/img_Volver"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.511" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Tarjeta Blanca -->
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:text="Hazte Premium"
+        android:textColor="@android:color/white"
+        android:textSize="37sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra_premium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="284dp"
+        android:layout_height="117dp"
+        android:layout_gravity="center"
+        android:layout_margin="50px"
+        android:text="Disfruta de una navegación sin interrupciones!\nHazte premium para no ver anuncios"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+
+        android:id="@+id/imageView"
+        android:layout_width="191dp"
+        android:layout_height="104dp"
+
+        android:layout_margin="35dp"
+        android:gravity="center"
+        android:src="@drawable/pago3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_HacersePremium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <Button
+        android:id="@+id/btn_HacersePremium"
+        android:layout_width="205dp"
+        android:layout_height="86dp"
+        android:layout_gravity="center"
+
+
+        android:layout_marginBottom="76dp"
+
+        android:background="@drawable/btn_circulo"
+        android:text="Hacerse Premium"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.726" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

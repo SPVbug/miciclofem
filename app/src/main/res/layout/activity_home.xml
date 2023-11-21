@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+
+    <!-- Imagen de fondo -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Barra dE MENU-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_Menu"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="15dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_menu"
+            android:gravity="center"
+            android:text="Menú"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_Cuenta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_Cuenta"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="15dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_cuenta2"
+            android:gravity="center"
+            android:text="Cuenta"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_Menu"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- TEXTO Y LOGO -->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+
+        android:layout_width="384dp"
+        android:layout_height="292dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
+
+        <!-- iicono -->
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_flor" />
+
+        <!-- Texto -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="¡Hola de Nuevo!"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:text="Conéctate con tu bienestar femenino "
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+
+
+
+    <!-- circuloo -->
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="181dp"
+        android:layout_height="184dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="268dp"
+        app:cardCornerRadius="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
+
+        <!-- Contenido del círculo -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:id="@+id/textFecha"
+                android:layout_width="101dp"
+                android:layout_height="97dp"
+                android:layout_centerInParent="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Falta para tu periodo: 5 Dias "
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    <!-- BOTONES DE ABAJO -->
+    <GridLayout
+        android:id="@+id/Botones"
+        android:layout_width="373dp"
+        android:layout_height="274dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        tools:layout_editor_absoluteX="19dp">
+
+        <!-- Botón 1 Calendario -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="25dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:src="@drawable/ic_calendario_col"
+
+                />
+
+            <Button
+                android:id="@+id/btn_Calendario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_circulo"
+
+                android:gravity="center" />
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Calendario"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón 2 Notificaciones -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="25dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:src="@drawable/ic_notificaciones"
+
+                />
+
+            <Button
+                android:id="@+id/btn_Notificaciones"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_circulo"
+
+                android:gravity="center" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Notificaciones"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón 3 Pastillas -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="25dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:src="@drawable/ic_pastilla"
+
+                />
+
+            <Button
+                android:id="@+id/btn_Pastillas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_circulo"
+
+                android:gravity="center" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Pastillas"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón 4 Flor -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="25dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:src="@drawable/ic_star"
+
+                />
+
+            <Button
+                android:id="@+id/btn_Premium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_circulo"
+
+                android:gravity="center" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Premium"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
