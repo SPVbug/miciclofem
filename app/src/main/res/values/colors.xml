@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lila">#A683E8</color>
+    <color name="purpura">#2C1B49</color>
+    <color name="celeste">#58EBFF</color>
+    <color name="rosa">#FDEEFF</color>
+    <color name="rosa2">#F5A8FF</color>
 </resources>

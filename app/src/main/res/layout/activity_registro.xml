@@ -33,7 +33,7 @@
 
 
         <EditText
-            android:id="@+id/edittext1"
+            android:id="@+id/registro_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -41,11 +41,18 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/edittext2"
+            android:id="@+id/registro_Contraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Contraseña"
+            android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/registro_Nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nombre"
             android:inputType="textPassword" />
 
         <LinearLayout
@@ -53,19 +60,15 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Registro" />
+
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn_Registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Acceder" />
+                android:text="Registrarse" />
+
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
