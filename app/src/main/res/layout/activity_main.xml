@@ -52,21 +52,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
             <Button
                 android:id="@+id/btn_IrRegistro"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Registrarse" />
 
             <Button
                 android:id="@+id/btn_IrInicioSesion"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Iniciar Sesión" />
+                android:text="Logear"
+                android:layout_marginTop="100dp"/>
         </LinearLayout>
     </LinearLayout>
 

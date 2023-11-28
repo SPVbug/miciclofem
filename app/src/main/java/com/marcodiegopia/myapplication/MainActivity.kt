@@ -10,28 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Ir a registroo
         val btnIrRegistro: Button = findViewById(R.id.btn_IrRegistro)
+        val btnIrInicioSesion: Button = findViewById(R.id.btn_IrInicioSesion)
 
-        btnIrRegistro.setOnClickListener {
-
+        // Agregar un OnClickListener para el botón "Iniciar Sesión"
+        btnIrInicioSesion.setOnClickListener {
             val intent = Intent(this, Registro::class.java)
             startActivity(intent)
         }
-
-        // Ir a inicio de sesion
-        val btnIrInicioSesion: Button = findViewById(R.id.btn_IrInicioSesion)
-
-        btnIrInicioSesion.setOnClickListener {
-
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-
-
-
-
-
-
     }
 }

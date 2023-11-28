@@ -68,6 +68,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Registrarse" />
+            <Button
+                android:id="@+id/btn_IrInicioSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Iniciar Sesión" />
 
         </LinearLayout>
     </LinearLayout>

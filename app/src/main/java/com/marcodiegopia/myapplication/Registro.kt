@@ -10,15 +10,11 @@ class Registro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
-
         val btnRegistro: Button = findViewById(R.id.btn_Registro)
 
         btnRegistro.setOnClickListener {
-
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
-
-
 }
