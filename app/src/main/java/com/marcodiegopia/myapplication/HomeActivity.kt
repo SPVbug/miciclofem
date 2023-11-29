@@ -28,5 +28,14 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+        // ir a CALENDARIO
+        val btnCalendario: Button = findViewById(R.id.btn_Calendario)
+
+        btnCalendario.setOnClickListener {
+            val intent = Intent(this, CalendarioActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 }
