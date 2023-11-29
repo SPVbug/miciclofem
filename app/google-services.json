@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1050811015130",
+    "project_id": "mi-ciclo-fem",
+    "storage_bucket": "mi-ciclo-fem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050811015130:android:6e098c3ea2fff159206ae3",
+        "android_client_info": {
+          "package_name": "com.clases.miciclofem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEJ5LuYTgB30345G25OylCe_9Czk0JujU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050811015130:android:8745362ee7563025206ae3",
+        "android_client_info": {
+          "package_name": "com.marcodiegopia.miciclofem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEJ5LuYTgB30345G25OylCe_9Czk0JujU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050811015130:android:a758c544cf63e3e8206ae3",
+        "android_client_info": {
+          "package_name": "com.marcodiegopia.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEJ5LuYTgB30345G25OylCe_9Czk0JujU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
