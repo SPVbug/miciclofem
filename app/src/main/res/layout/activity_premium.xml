@@ -13,9 +13,9 @@
 
         android:id="@+id/barra_premium"
         android:layout_width="0dp"
-        android:layout_height="76dp"
+        android:layout_height="56dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
+        android:background="@color/purpura"
 
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,41 +26,39 @@
             android:id="@+id/btn_PVolver"
             android:layout_width="76dp"
             android:layout_height="76dp"
-
             android:background="?android:attr/selectableItemBackground"
-
+            android:contentDescription="Back"
             android:gravity="center"
-
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/img_Volver"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_margin="35dp"
+            android:layout_margin="3dp"
+            android:layout_marginStart="16dp"
             android:gravity="center"
-
-            android:src="@drawable/ic_volver"
+            android:src="@drawable/ic_vover_blanco"
             app:layout_constraintBottom_toBottomOf="@+id/btn_PVolver"
             app:layout_constraintEnd_toEndOf="@+id/btn_PVolver"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/btn_PVolver"
+            app:layout_constraintVertical_bias="0.217" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="28dp"
             android:text="Volver"
-            android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toEndOf="@+id/img_Volver"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.511" />
+            app:layout_constraintVertical_bias="0.517" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -108,10 +106,10 @@
         android:src="@drawable/pago3"
         app:layout_constraintBottom_toTopOf="@+id/btn_HacersePremium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.851" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_HacersePremium"
@@ -128,8 +126,9 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.726" />
+        app:layout_constraintVertical_bias="0.967" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
