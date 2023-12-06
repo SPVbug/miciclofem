@@ -25,6 +25,9 @@
             android:name=".CalendarioActivity"
             android:theme="@style/Base.Theme.MiCicloFem" />
         <activity
+            android:name=".HomeActivity2"
+            android:exported="false" />
+        <activity
             android:name=".PremiumActivity"
             android:exported="false" />
         <activity
