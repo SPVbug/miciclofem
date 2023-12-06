@@ -8,8 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
+
+data class FechaPeriodo(val startingDate: String, val endingDate: String)
 
 class CalendarioActivity : AppCompatActivity() {
     private lateinit var startingDate: TextView
@@ -31,6 +34,7 @@ class CalendarioActivity : AppCompatActivity() {
 
         val button: MaterialButton = findViewById(R.id.rangePicker)
         val btnEliminar: Button = findViewById(R.id.btnEliminar)
+        val btnGuardar: Button = findViewById(R.id.btnGuardar)
 
         button.setOnClickListener {
             val materialDatePicker = MaterialDatePicker.Builder.dateRangePicker()
@@ -42,13 +46,16 @@ class CalendarioActivity : AppCompatActivity() {
 
             materialDatePicker.addOnPositiveButtonClickListener(
                 MaterialPickerOnPositiveButtonClickListener { selection ->
-                    val date1 = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-                        .format(Date(selection.first ?: 0))
-                    val date2 = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-                        .format(Date(selection.second ?: 0))
+                    val date1Millis = selection.first ?: 0
+                    val date2Millis = selection.second ?: 0
 
-                    startingDate.text = getString(R.string.selected_starting_date, date1)
-                    endingDate.text = getString(R.string.selected_ending_date, date2)
+                    val fechaPeriodo = FechaPeriodo(
+                        formatDateToString(date1Millis),
+                        formatDateToString(date2Millis)
+                    )
+
+                    startingDate.text = getString(R.string.selected_starting_date, fechaPeriodo.startingDate)
+                    endingDate.text = getString(R.string.selected_ending_date, fechaPeriodo.endingDate)
                 })
 
             materialDatePicker.show(supportFragmentManager, "tag")
@@ -60,6 +67,38 @@ class CalendarioActivity : AppCompatActivity() {
                 eliminarRegistro()
             }
         })
+
+        // Agregar lógica para guardar las fechas cuando se presiona el botón "Guardar"
+        btnGuardar.setOnClickListener {
+            val date1 = startingDate.text.toString()
+            val date2 = endingDate.text.toString()
+
+            if (date1.isNotEmpty() && date2.isNotEmpty()) {
+                val fechaPeriodo = FechaPeriodo(date1, date2)
+                // Guardar las fechas en Firebase Realtime Database en dos nodos diferentes
+                guardarFechasEnFirebase("time1", fechaPeriodo)
+                guardarFechasEnFirebase("time2", fechaPeriodo)
+            }
+        }
+    }
+
+    private fun formatDateToString(millis: Long): String {
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        return dateFormat.format(Date(millis))
+    }
+
+    private fun guardarFechasEnFirebase(nodeName: String, fechaPeriodo: FechaPeriodo) {
+        val firebaseDatabase = FirebaseDatabase.getInstance()
+        val reference = firebaseDatabase.getReference(nodeName)
+
+        reference.setValue(fechaPeriodo)
+            .addOnSuccessListener {
+                // Manejar el éxito de la escritura en Firebase
+            }
+            .addOnFailureListener { e ->
+                // Manejar errores en la escritura en Firebase
+                e.printStackTrace()
+            }
     }
 
     private fun eliminarRegistro() {
