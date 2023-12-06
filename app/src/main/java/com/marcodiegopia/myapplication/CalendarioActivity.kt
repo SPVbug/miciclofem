@@ -1,71 +1,71 @@
 package com.marcodiegopia.myapplication
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
-import android.widget.CalendarView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
 import java.text.SimpleDateFormat
 import java.util.*
 
 class CalendarioActivity : AppCompatActivity() {
-
-    private lateinit var calendarView: CalendarView
-    private lateinit var startDate: Date
-    private lateinit var endDate: Date
-    private val highlightedDates = HashSet<Long>()
+    private lateinit var startingDate: TextView
+    private lateinit var endingDate: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendario)
 
-        val startDateMillis = intent.getLongExtra("start_date", 0)
-        val endDateMillis = intent.getLongExtra("end_date", 0)
-        startDate = Date(startDateMillis)
-        endDate = Date(endDateMillis)
+        // Volver a la pantalla de inicio
+        val btnVolver: Button = findViewById(R.id.btn_Volver)
 
-        // Crear un conjunto de fechas en el rango
-        val currentDate = Calendar.getInstance().apply {
-            time = startDate
-        }
-        while (currentDate.timeInMillis <= endDate.time) {
-            highlightedDates.add(currentDate.timeInMillis)
-            currentDate.add(Calendar.DAY_OF_MONTH, 1)
+        btnVolver.setOnClickListener {
+            finish()
         }
 
-        calendarView = findViewById(R.id.calendarView)
-        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val selectedDate = Calendar.getInstance()
-            selectedDate.set(year, month, dayOfMonth)
+        startingDate = findViewById(R.id.startingDate)
+        endingDate = findViewById(R.id.endingDate)
 
-            // Verificar si la fecha seleccionada está en el rango
-            if (selectedDate.timeInMillis in highlightedDates) {
-                // La fecha seleccionada está dentro del rango, puedes cambiar su apariencia aquí
-                val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-                val formattedDate = dateFormat.format(selectedDate.time)
-                println("Fecha seleccionada: $formattedDate está dentro del rango.")
-            } else {
-                // La fecha seleccionada no está dentro del rango, puedes manejarlo aquí
-                Toast.makeText(this, "Seleccione una fecha dentro del rango", Toast.LENGTH_SHORT).show()
+        val button: MaterialButton = findViewById(R.id.rangePicker)
+        val btnEliminar: Button = findViewById(R.id.btnEliminar)
+
+        button.setOnClickListener {
+            val materialDatePicker = MaterialDatePicker.Builder.dateRangePicker()
+                .setSelection(androidx.core.util.Pair(
+                    MaterialDatePicker.thisMonthInUtcMilliseconds(),
+                    MaterialDatePicker.todayInUtcMilliseconds()
+                ))
+                .build()
+
+            materialDatePicker.addOnPositiveButtonClickListener(
+                MaterialPickerOnPositiveButtonClickListener { selection ->
+                    val date1 = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+                        .format(Date(selection.first ?: 0))
+                    val date2 = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+                        .format(Date(selection.second ?: 0))
+
+                    startingDate.text = getString(R.string.selected_starting_date, date1)
+                    endingDate.text = getString(R.string.selected_ending_date, date2)
+                })
+
+            materialDatePicker.show(supportFragmentManager, "tag")
+        }
+
+        // Agregar lógica para eliminar el registro cuando se presiona el botón "X"
+        btnEliminar.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                eliminarRegistro()
             }
-        }
-
-        // Marcar las fechas en el calendario
-        marcarFechasEnCalendario()
-
-        // Ir a registrar periodo en calendario
-        val btnRegistrarFechas: Button = findViewById(R.id.btn_RegistrarFechas)
-        btnRegistrarFechas.setOnClickListener {
-            val intent = Intent(this, RegistrarFechasActivity::class.java)
-            startActivity(intent)
-        }
+        })
     }
 
-    // Método para marcar las fechas en el calendario
-    private fun marcarFechasEnCalendario() {
-        for (dateInMillis in highlightedDates) {
-            calendarView.setDate(dateInMillis, true, false)
-        }
+    private fun eliminarRegistro() {
+        // Agrega aquí la lógica para eliminar el registro de tu aplicación
+        // Puedes modificar esta función según tus necesidades específicas
+        startingDate.text = "Dia comienzo"
+        endingDate.text = "Dia final"
     }
 }

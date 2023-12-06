@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/PrimerItem"
+        android:title="Cuenta" />
+    <item
+        android:id="@+id/SegundoItem"
+        android:title="Notificaciones" />
+    <item
+        android:id="@+id/TercerItem"
+        android:title="Premium" />
+</menu>

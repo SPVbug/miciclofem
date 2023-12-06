@@ -13,17 +13,17 @@
         android:theme="@style/Theme.MiCicloFem"
         tools:targetApi="31">
         <activity
-            android:name=".CalendarAdapter"
+            android:name=".PastillasActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrarFechasActivity"
+            android:name=".NotificacionesActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrarPeriodoActivity"
+            android:name=".PopupMenu"
             android:exported="false" />
         <activity
             android:name=".CalendarioActivity"
-            android:exported="false" />
+            android:theme="@style/Base.Theme.MiCicloFem" />
         <activity
             android:name=".PremiumActivity"
             android:exported="false" />
