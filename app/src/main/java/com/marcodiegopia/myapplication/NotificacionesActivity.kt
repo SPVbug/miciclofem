@@ -1,7 +1,9 @@
 package com.marcodiegopia.myapplication
 
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +11,12 @@ import android.os.Build
 import android.widget.Button
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import android.widget.Switch
+import com.marcodiegopia.myapplication.AlarmNotification.Companion.NOTIFICATION_ID
+import java.util.Calendar
+import android.content.Intent
+
+
 
 class NotificacionesActivity : AppCompatActivity() {
 
@@ -21,10 +29,15 @@ class NotificacionesActivity : AppCompatActivity() {
 
         // Volver a la pantalla de inicio
         val btnVolver: Button = findViewById(R.id.btn_Volver)
-        val myNotificationButton = findViewById<Button>(R.id.btnNotification)
+        val myNotificationSwitch = findViewById<Switch>(R.id.switchNotifMenstrual)
         createChannel()
-        myNotificationButton.setOnClickListener {
-            createSimpleNotification()
+
+        myNotificationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                scheduleNotification()
+            } else {
+
+            }
         }
 
         btnVolver.setOnClickListener {
@@ -32,7 +45,20 @@ class NotificacionesActivity : AppCompatActivity() {
         }
 
     }
-    fun createChannel() {
+
+    private fun scheduleNotification() {
+        val intent = Intent(applicationContext, AlarmNotification::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext,
+            NOTIFICATION_ID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 5000, pendingIntent)
+    }
+
+    private fun createChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 MY_CHANNEL_ID,
@@ -47,15 +73,5 @@ class NotificacionesActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel)
         }
     }
-    fun createSimpleNotification(){
-        var builder = NotificationCompat.Builder(this, MY_CHANNEL_ID)
-            .setSmallIcon(android.R.drawable.ic_delete)
-            .setContentTitle("My title")
-            .setContentText("Esto es un ejemplo")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        with(NotificationManagerCompat.from(this)){
-            notify(1, builder.build())
-        }
-    }
 }
